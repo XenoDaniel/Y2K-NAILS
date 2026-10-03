@@ -1,0 +1,1599 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111012">
+  <meta name="description" content="Custom nail art for main-character energy. Explore nail sets, find your length, and book your next appointment.">
+  <title>SET STUDIO — Nails That Do The Talking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #111012;
+      --page-raised: #181619;
+      --surface: #201d21;
+      --surface-raised: #29252a;
+      --text: #fff8fc;
+      --muted: #b7adb5;
+      --subtle: #827781;
+      --line: rgba(255, 248, 252, .13);
+      --pink: #ff4fa3;
+      --pink-bright: #ff73b5;
+      --pink-wash: rgba(255, 79, 163, .12);
+      --lime: #d4ff69;
+      --chrome: #d8d1db;
+      --hero-glow: rgba(255, 79, 163, .13);
+      --card-shadow: 0 18px 48px rgba(0, 0, 0, .2);
+      --margin-page: 20px;
+      --gap-card: 12px;
+      --padding-card: 20px;
+      --radius-card: 20px;
+      --font-display: "Syne", "Arial Black", sans-serif;
+      --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    [data-theme="light"] {
+      color-scheme: light;
+      --page: #fff8fb;
+      --page-raised: #fff0f6;
+      --surface: #ffffff;
+      --surface-raised: #fff4f9;
+      --text: #20161d;
+      --muted: #655760;
+      --subtle: #887783;
+      --line: rgba(54, 31, 44, .14);
+      --pink: #dc1975;
+      --pink-bright: #f13991;
+      --pink-wash: rgba(220, 25, 117, .09);
+      --lime: #b1df42;
+      --chrome: #726672;
+      --hero-glow: rgba(255, 79, 163, .18);
+      --card-shadow: 0 18px 48px rgba(111, 44, 80, .08);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+      background: var(--page);
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 80% 4%, var(--hero-glow), transparent 35rem),
+        var(--page);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color .25s ease, color .25s ease;
+    }
+
+    button,
+    a {
+      color: inherit;
+      font: inherit;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      z-index: 20;
+      top: 8px;
+      left: 8px;
+      padding: 10px 14px;
+      transform: translateY(-150%);
+      border-radius: 12px;
+      background: var(--text);
+      color: var(--page);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .announcement {
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, .14);
+      background: var(--pink);
+      color: #190d14;
+    }
+
+    .marquee {
+      display: flex;
+      width: max-content;
+      min-height: 36px;
+      align-items: center;
+      animation: marquee 25s linear infinite;
+    }
+
+    .marquee__group {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 28px;
+      padding-right: 28px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .11em;
+      white-space: nowrap;
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 5;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--page) 82%, transparent);
+      backdrop-filter: saturate(160%) blur(18px);
+      -webkit-backdrop-filter: saturate(160%) blur(18px);
+    }
+
+    .nav {
+      display: flex;
+      width: min(100% - 2 * var(--margin-page), 1240px);
+      min-height: 68px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -.07em;
+      line-height: 1;
+    }
+
+    .wordmark__spark {
+      color: var(--pink);
+      font-size: 23px;
+      line-height: .8;
+    }
+
+    .nav__links {
+      display: none;
+      align-items: center;
+      gap: 30px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav__links a,
+    .footer__links a {
+      transition: color .2s ease;
+    }
+
+    .nav__links a:hover,
+    .footer__links a:hover {
+      color: var(--pink);
+    }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle,
+    .nav__book {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+    }
+
+    .theme-toggle {
+      width: 44px;
+      padding: 0;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .nav__book {
+      padding: 0 16px;
+      border-color: var(--pink);
+      background: var(--pink);
+      color: #190d14;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .theme-toggle:hover,
+    .nav__book:hover {
+      transform: translateY(-2px);
+    }
+
+    .container {
+      width: min(100% - 2 * var(--margin-page), 1240px);
+      margin-inline: auto;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      align-items: center;
+      gap: 44px;
+      padding-block: 56px 76px;
+    }
+
+    .hero__copy {
+      max-width: 650px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--pink-bright);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 14px color-mix(in srgb, var(--lime) 70%, transparent);
+      content: "";
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+    }
+
+    h1 {
+      max-width: 740px;
+      margin-bottom: 20px;
+      font-size: clamp(3.25rem, 13vw, 7.3rem);
+      font-weight: 800;
+      letter-spacing: -.085em;
+      line-height: .91;
+    }
+
+    h1 span {
+      color: var(--pink);
+    }
+
+    .hero__description {
+      max-width: 460px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 18px);
+      line-height: 1.65;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--pink);
+      color: #190d14;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .045em;
+      text-align: center;
+      transition: transform .22s cubic-bezier(.34, 1.56, .64, 1), box-shadow .22s ease, background-color .22s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: var(--pink-bright);
+      box-shadow: 0 10px 32px rgba(255, 79, 163, .26);
+    }
+
+    .button:active {
+      transform: scale(.98);
+    }
+
+    .button:focus-visible,
+    .theme-toggle:focus-visible,
+    .nav a:focus-visible,
+    summary:focus-visible,
+    .footer a:focus-visible {
+      outline: 3px solid var(--lime);
+      outline-offset: 4px;
+    }
+
+    .button--pulse {
+      animation: pulse 2.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 79, 163, .35); }
+      50% { box-shadow: 0 0 0 10px rgba(255, 79, 163, 0); }
+    }
+
+    .hero__note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .hero__note i {
+      color: var(--lime);
+      font-size: 16px;
+    }
+
+    .hero__visual {
+      position: relative;
+      width: min(100%, 390px);
+      justify-self: center;
+      padding: 12px;
+      border: 1px solid color-mix(in srgb, var(--chrome) 35%, transparent);
+      border-radius: 30px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.12), transparent 35%),
+        linear-gradient(135deg, #30222d, #121014 62%, #392232);
+      box-shadow: 0 26px 80px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255,255,255,.19);
+    }
+
+    [data-theme="light"] .hero__visual {
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.7), transparent 35%),
+        linear-gradient(135deg, #f9dce9, #f8edf3 62%, #f2c9de);
+      box-shadow: 0 26px 80px rgba(111, 44, 80, .15), inset 0 1px 0 rgba(255,255,255,.9);
+    }
+
+    .video-placeholder {
+      position: relative;
+      display: flex;
+      min-height: 450px;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at 70% 37%, rgba(255, 79, 163, .48), transparent 29%),
+        radial-gradient(ellipse at 20% 80%, rgba(212, 255, 105, .19), transparent 27%),
+        linear-gradient(160deg, #261621 0%, #100e12 60%, #1e1720 100%);
+      text-align: center;
+    }
+
+    [data-theme="light"] .video-placeholder {
+      border-color: rgba(87, 37, 66, .16);
+      background:
+        radial-gradient(ellipse at 70% 37%, rgba(220, 25, 117, .25), transparent 29%),
+        radial-gradient(ellipse at 20% 80%, rgba(177, 223, 66, .34), transparent 27%),
+        linear-gradient(160deg, #f4ccdf 0%, #f9edf3 60%, #ecd5e2 100%);
+    }
+
+    .video-placeholder::before,
+    .video-placeholder::after {
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .video-placeholder::before {
+      top: 12%;
+      right: -20%;
+    }
+
+    .video-placeholder::after {
+      bottom: 6%;
+      left: -23%;
+      width: 170px;
+      height: 170px;
+      border-color: rgba(255, 79, 163, .38);
+    }
+
+    [data-theme="light"] .video-placeholder::before {
+      border-color: rgba(53, 23, 41, .15);
+    }
+
+    [data-theme="light"] .video-placeholder::after {
+      border-color: rgba(220, 25, 117, .32);
+    }
+
+    .video-placeholder__label {
+      position: absolute;
+      z-index: 1;
+      top: 18px;
+      left: 18px;
+      color: rgba(255,255,255,.78);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    [data-theme="light"] .video-placeholder__label {
+      color: rgba(32, 22, 29, .65);
+    }
+
+    .video-placeholder__art {
+      position: relative;
+      display: flex;
+      width: 100%;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 40px 20px;
+    }
+
+    .nail {
+      position: relative;
+      width: clamp(37px, 11vw, 53px);
+      height: clamp(112px, 31vw, 148px);
+      border: 1px solid rgba(255,255,255,.58);
+      border-radius: 45% 45% 30% 30% / 24% 24% 16% 16%;
+      background:
+        linear-gradient(110deg, rgba(255,255,255,.72), transparent 28% 74%, rgba(255,255,255,.35)),
+        linear-gradient(145deg, #ff82ba 4%, #fe3d92 52%, #9b205f 100%);
+      box-shadow: 0 14px 30px rgba(0,0,0,.27), inset 0 2px 4px rgba(255,255,255,.5);
+      transform: rotate(-18deg);
+    }
+
+    .nail:nth-child(2) {
+      z-index: 2;
+      transform: translateY(-17px) rotate(-7deg);
+      background:
+        linear-gradient(105deg, rgba(255,255,255,.8), transparent 27% 71%, rgba(255,255,255,.28)),
+        linear-gradient(155deg, #f7f1ed 4%, #d6c9d3 48%, #827384 100%);
+    }
+
+    .nail:nth-child(3) {
+      z-index: 3;
+      transform: translateY(-24px) rotate(4deg);
+      background:
+        linear-gradient(105deg, rgba(255,255,255,.82), transparent 27% 71%, rgba(255,255,255,.28)),
+        linear-gradient(155deg, #ffc0df 4%, #ff63ad 48%, #a5236a 100%);
+    }
+
+    .nail:nth-child(4) {
+      z-index: 2;
+      transform: translateY(-14px) rotate(13deg);
+      background:
+        linear-gradient(105deg, rgba(255,255,255,.75), transparent 27% 71%, rgba(255,255,255,.28)),
+        linear-gradient(155deg, #e8ff9f 4%, #a7ce54 48%, #597326 100%);
+    }
+
+    .nail:nth-child(5) {
+      transform: rotate(22deg);
+    }
+
+    .video-placeholder__play {
+      position: absolute;
+      z-index: 4;
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 50%;
+      background: rgba(255,255,255,.19);
+      color: #fff;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-size: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    }
+
+    .video-placeholder__caption {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 0 20px 22px;
+      color: rgba(255,255,255,.88);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    [data-theme="light"] .video-placeholder__caption {
+      color: rgba(32, 22, 29, .7);
+    }
+
+    .video-placeholder__caption strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 17px;
+      letter-spacing: -.04em;
+    }
+
+    [data-theme="light"] .video-placeholder__caption strong {
+      color: var(--text);
+    }
+
+    .visual-sticker {
+      position: absolute;
+      z-index: 2;
+      right: -8px;
+      bottom: 54px;
+      display: grid;
+      width: 88px;
+      height: 88px;
+      place-items: center;
+      padding: 10px;
+      transform: rotate(9deg);
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 50%;
+      background: var(--lime);
+      color: #19200d;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.1;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+
+    .visual-index {
+      position: absolute;
+      top: 46px;
+      left: -20px;
+      z-index: 2;
+      padding: 8px 12px;
+      transform: rotate(-7deg);
+      border: 1px solid color-mix(in srgb, var(--chrome) 40%, transparent);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      box-shadow: var(--card-shadow);
+    }
+
+    .section {
+      padding-block: 68px;
+      border-top: 1px solid var(--line);
+    }
+
+    .parallax-section {
+      overflow: clip;
+      border-top: 1px solid var(--line);
+      background: var(--page-raised);
+    }
+
+    .parallax-section__inner {
+      width: min(100% - 2 * var(--margin-page), 1240px);
+      margin-inline: auto;
+      padding-block: 68px;
+    }
+
+    .parallax-grid {
+      display: grid;
+      gap: var(--gap-card);
+    }
+
+    .parallax-card {
+      position: relative;
+      min-height: clamp(290px, 90vw, 430px);
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid color-mix(in srgb, var(--chrome) 24%, var(--line));
+      border-radius: var(--radius-card);
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
+    }
+
+    .parallax-card__visual {
+      position: absolute;
+      z-index: 0;
+      inset: -11%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background: linear-gradient(145deg, #5a2848 0%, #241723 51%, #111012 100%);
+      transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.08);
+      will-change: transform;
+    }
+
+    .parallax-card__image {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-card);
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .parallax-card:nth-child(2) .parallax-card__visual {
+      background: linear-gradient(145deg, #432c60 0%, #22182a 55%, #111012 100%);
+    }
+
+    .parallax-card:nth-child(3) .parallax-card__visual {
+      background: linear-gradient(145deg, #4a5141 0%, #20241c 55%, #111012 100%);
+    }
+
+    [data-theme="light"] .parallax-card__visual {
+      background: linear-gradient(145deg, #efb6d1 0%, #e9ccdc 51%, #d2b5c8 100%);
+    }
+
+    [data-theme="light"] .parallax-card:nth-child(2) .parallax-card__visual {
+      background: linear-gradient(145deg, #dec6f4 0%, #e5d8ed 55%, #c7b6d6 100%);
+    }
+
+    [data-theme="light"] .parallax-card:nth-child(3) .parallax-card__visual {
+      background: linear-gradient(145deg, #dce8b7 0%, #dce1cc 55%, #c1c9ad 100%);
+    }
+
+    .parallax-card::after {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 9, 14, .02) 20%, rgba(15, 9, 14, .78) 100%);
+      content: "";
+    }
+
+    [data-theme="light"] .parallax-card::after {
+      background: linear-gradient(180deg, rgba(255, 248, 251, .02) 20%, rgba(40, 17, 32, .67) 100%);
+    }
+
+    .parallax-card__orb {
+      position: absolute;
+      z-index: 2;
+      top: 15%;
+      right: 10%;
+      width: clamp(76px, 20vw, 128px);
+      aspect-ratio: 1;
+      transform: translate3d(0, var(--parallax-y, 0px), 0);
+      border: 1px solid rgba(255, 255, 255, .56);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 31% 28%, rgba(255,255,255,.9), rgba(255,255,255,.15) 31%, transparent 66%),
+        linear-gradient(135deg, rgba(255,255,255,.45), rgba(255,255,255,.04) 55%, rgba(255,79,163,.38));
+      box-shadow: inset -14px -18px 38px rgba(17, 10, 17, .23), 0 24px 70px rgba(0,0,0,.17);
+      backdrop-filter: blur(2px);
+      opacity: .42;
+      will-change: transform;
+    }
+
+    .parallax-card:nth-child(2) .parallax-card__orb {
+      top: 25%;
+      right: 13%;
+      width: clamp(86px, 22vw, 142px);
+      border-radius: 48% 52% 45% 55% / 52% 39% 61% 48%;
+      background:
+        radial-gradient(ellipse at 28% 25%, rgba(255,255,255,.8), rgba(255,255,255,.08) 37%, transparent 68%),
+        linear-gradient(135deg, rgba(206,173,255,.55), rgba(255,255,255,.07) 55%, rgba(142,86,195,.45));
+    }
+
+    .parallax-card:nth-child(3) .parallax-card__orb {
+      top: 17%;
+      right: 15%;
+      width: clamp(80px, 21vw, 132px);
+      border-radius: 42% 58% 55% 45% / 44% 39% 61% 56%;
+      background:
+        radial-gradient(ellipse at 28% 25%, rgba(255,255,255,.8), rgba(255,255,255,.08) 37%, transparent 68%),
+        linear-gradient(135deg, rgba(229,255,164,.58), rgba(255,255,255,.07) 55%, rgba(110,136,63,.45));
+    }
+
+    .parallax-card__orb {
+      pointer-events: none;
+    }
+
+    .parallax-card__copy {
+      position: absolute;
+      z-index: 3;
+      right: 20px;
+      bottom: 22px;
+      left: 20px;
+      color: #fff8fc;
+    }
+
+    .parallax-card__label {
+      margin-bottom: 8px;
+      color: rgba(255, 248, 252, .76);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .parallax-card__copy h3 {
+      margin-bottom: 5px;
+      font-size: clamp(1.7rem, 7vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -.07em;
+      line-height: 1;
+    }
+
+    .parallax-card__copy p:last-child {
+      margin: 0;
+      color: rgba(255, 248, 252, .82);
+      font-size: 12px;
+    }
+
+    .section__heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section__kicker {
+      margin: 0;
+      color: var(--pink-bright);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(2.2rem, 8vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: -.075em;
+      line-height: .98;
+    }
+
+    .section__intro {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .service-grid {
+      display: grid;
+      gap: var(--gap-card);
+    }
+
+    .service-card {
+      position: relative;
+      display: flex;
+      min-height: 330px;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: var(--padding-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(145deg, color-mix(in srgb, var(--pink) 8%, transparent), transparent 50%),
+        var(--surface);
+      box-shadow: var(--card-shadow);
+      transition: transform .28s cubic-bezier(.2, .7, .3, 1), border-color .25s ease, background-color .25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--pink) 58%, var(--line));
+    }
+
+    .service-card::after {
+      position: absolute;
+      top: -42px;
+      right: -20px;
+      width: 150px;
+      height: 150px;
+      border: 1px solid color-mix(in srgb, var(--chrome) 24%, transparent);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .service-card__top {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .service-card__number {
+      color: var(--subtle);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .13em;
+    }
+
+    .service-card__icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--pink-wash);
+      color: var(--pink);
+      font-size: 20px;
+    }
+
+    .service-card h3 {
+      max-width: 300px;
+      margin-bottom: 12px;
+      font-size: clamp(1.65rem, 6vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -.065em;
+      line-height: 1.04;
+    }
+
+    .service-card p {
+      max-width: 380px;
+      margin-bottom: 26px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .service-card__link {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 9px;
+      margin-top: auto;
+      color: var(--pink-bright);
+      font-size: 12px;
+      font-weight: 800;
+      transition: gap .2s ease, color .2s ease;
+    }
+
+    .service-card__link:hover {
+      gap: 14px;
+      color: var(--text);
+    }
+
+    .reviews {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reviews::before {
+      position: absolute;
+      top: 14px;
+      right: -100px;
+      width: 310px;
+      height: 310px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .review-grid {
+      display: grid;
+      gap: var(--gap-card);
+    }
+
+    .review {
+      position: relative;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: var(--card-shadow);
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .review:hover {
+      transform: translateY(-3px);
+      border-color: color-mix(in srgb, var(--pink) 50%, var(--line));
+    }
+
+    .review__meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .review__avatar {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--pink) 45%, transparent);
+      border-radius: 50%;
+      background: var(--pink-wash);
+      color: var(--pink);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .review__name {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .review__handle {
+      display: block;
+      margin-top: 3px;
+      color: var(--subtle);
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .review__bubble {
+      position: relative;
+      max-width: 380px;
+      padding: 15px 16px;
+      border-radius: 18px 18px 18px 5px;
+      background: var(--surface-raised);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .review:nth-child(even) .review__bubble {
+      margin-left: auto;
+      border-radius: 18px 18px 5px 18px;
+      background: var(--pink);
+      color: #190d14;
+    }
+
+    .review__time {
+      display: block;
+      margin-top: 9px;
+      color: var(--subtle);
+      font-size: 9px;
+      font-weight: 700;
+      text-align: right;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .review:nth-child(even) .review__time {
+      color: rgba(25, 13, 20, .68);
+    }
+
+    .policy-grid {
+      display: grid;
+      gap: var(--gap-card);
+    }
+
+    .policy-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      transition: border-color .2s ease, background-color .2s ease;
+    }
+
+    .policy-item[open] {
+      border-color: color-mix(in srgb, var(--pink) 48%, var(--line));
+      background: var(--surface-raised);
+    }
+
+    .policy-item summary {
+      display: flex;
+      min-height: 66px;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    .policy-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .policy-item__icon {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--pink-wash);
+      color: var(--pink);
+      font-size: 18px;
+    }
+
+    .policy-item__chevron {
+      margin-left: auto;
+      color: var(--subtle);
+      transition: transform .2s ease;
+    }
+
+    .policy-item[open] .policy-item__chevron {
+      transform: rotate(180deg);
+    }
+
+    .policy-item__content {
+      max-width: 700px;
+      padding: 0 22px 20px 70px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .booking-banner {
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+      padding: clamp(24px, 6vw, 50px);
+      border: 1px solid color-mix(in srgb, var(--pink) 45%, var(--line));
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(255, 79, 163, .2), transparent 55%),
+        var(--page-raised);
+    }
+
+    .booking-banner::after {
+      position: absolute;
+      right: 50px;
+      bottom: -160px;
+      width: 260px;
+      height: 260px;
+      border: 1px solid color-mix(in srgb, var(--chrome) 25%, transparent);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .booking-banner__text {
+      position: relative;
+      z-index: 1;
+      max-width: 690px;
+    }
+
+    .booking-banner h2 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 8vw, 4rem);
+    }
+
+    .booking-banner p:last-child {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .booking-banner .button {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+    }
+
+    .site-footer {
+      padding-block: 30px 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .footer__fine {
+      margin: 0;
+      color: var(--subtle);
+      font-size: 11px;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --margin-page: 32px;
+        --padding-card: 24px;
+      }
+
+      .nav {
+        min-height: 76px;
+      }
+
+      .nav__links {
+        display: flex;
+      }
+
+      .hero {
+        min-height: 640px;
+        grid-template-columns: minmax(0, 1fr) minmax(290px, .78fr);
+        gap: 36px;
+        padding-block: 68px 88px;
+      }
+
+      .hero__visual {
+        width: min(100%, 360px);
+      }
+
+      .video-placeholder {
+        min-height: 500px;
+      }
+
+      .section {
+        padding-block: 92px;
+      }
+
+      .parallax-section__inner {
+        padding-block: 92px;
+      }
+
+      .parallax-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .parallax-card {
+        min-height: 380px;
+      }
+
+      .parallax-card:nth-child(2) {
+        margin-top: 34px;
+      }
+
+      .parallax-card:nth-child(3) {
+        margin-top: 68px;
+      }
+
+      .section__heading {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 34px;
+      }
+
+      .section__heading-copy {
+        display: grid;
+        gap: 12px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .service-card {
+        min-height: 390px;
+        padding: 25px;
+      }
+
+      .review-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+        gap: 16px;
+      }
+
+      .review:nth-child(2) {
+        margin-top: 28px;
+      }
+
+      .review:nth-child(3) {
+        margin-top: 56px;
+      }
+
+      .policy-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+      }
+
+      .policy-item summary {
+        padding-inline: 16px;
+        font-size: 13px;
+      }
+
+      .policy-item__content {
+        padding-inline: 18px;
+      }
+
+      .booking-banner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
+        gap: 80px;
+      }
+
+      .hero__visual {
+        width: min(100%, 390px);
+      }
+
+      .video-placeholder {
+        min-height: 535px;
+      }
+
+      .service-card {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      :root {
+        --margin-page: 16px;
+        --padding-card: 16px;
+      }
+
+      .nav__book {
+        padding-inline: 12px;
+        font-size: 11px;
+      }
+
+      .hero__visual {
+        width: calc(100% - 8px);
+      }
+
+      .visual-index {
+        left: -8px;
+      }
+
+      .visual-sticker {
+        right: -3px;
+        width: 74px;
+        height: 74px;
+        font-size: 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="announcement" aria-label="Studio announcement">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__group">
+        <span>✨ BOOKS ARE OPEN FOR THIS MONTH</span><span>•</span>
+        <span>CHROME, JEL-X, &amp; CUSTOM ART ONLY</span><span>•</span>
+        <span>SPOTS FILL FAST</span><span>✨</span>
+      </div>
+      <div class="marquee__group">
+        <span>✨ BOOKS ARE OPEN FOR THIS MONTH</span><span>•</span>
+        <span>CHROME, JEL-X, &amp; CUSTOM ART ONLY</span><span>•</span>
+        <span>SPOTS FILL FAST</span><span>✨</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="wordmark" href="#" aria-label="Set Studio home">
+        <span class="wordmark__spark" aria-hidden="true">✳</span>
+        <span>SET STUDIO</span>
+      </a>
+      <div class="nav__links">
+        <a href="#services">The menu</a>
+        <a href="#lookbook">Set inspo</a>
+        <a href="#love-notes">Love notes</a>
+        <a href="#policies">The details</a>
+      </div>
+      <div class="nav__actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
+          <i class="ri-sun-line" aria-hidden="true"></i>
+        </button>
+        <a class="nav__book" href="booking-demo.html">Book a set <i class="ri-arrow-up-right-line" aria-hidden="true"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">Independent nail artist · accepting new clients</p>
+        <h1 id="hero-title">Nails That<br>Do The <span>Talking.</span></h1>
+        <p class="hero__description">Boring nails? Can’t relate. Tap below to secure your set and elevate your vibe.</p>
+        <div class="hero__actions">
+          <a class="button button--pulse" href="#services">⚡ LOCK IN MY SPOT <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+          <span class="hero__note"><i class="ri-sparkling-2-line" aria-hidden="true"></i> Made to be screenshotted</span>
+        </div>
+      </div>
+      <div class="hero__visual" aria-label="Vertical nail art video placeholder">
+        <span class="visual-index">SET No. 001 / 26</span>
+        <div class="video-placeholder">
+          <span class="video-placeholder__label">9:16 studio reel · add your clip</span>
+          <div class="video-placeholder__art" aria-hidden="true">
+            <span class="nail"></span><span class="nail"></span><span class="nail"></span><span class="nail"></span><span class="nail"></span>
+            <span class="video-placeholder__play"><i class="ri-play-fill"></i></span>
+          </div>
+          <div class="video-placeholder__caption">
+            <strong>New set, new energy.</strong>
+            Your latest nail-art video lives here.
+          </div>
+        </div>
+        <span class="visual-sticker">YOUR<br>HANDS,<br>YOUR RULES</span>
+      </div>
+    </section>
+
+    <section class="parallax-section" id="lookbook" aria-labelledby="lookbook-title">
+      <div class="parallax-section__inner">
+        <div class="section__heading">
+          <div class="section__heading-copy">
+            <p class="section__kicker">01 / A moodboard in motion</p>
+            <h2 id="lookbook-title">Made to move.</h2>
+          </div>
+          <p class="section__intro">Your next set starts with a feeling. Save a mood, then let’s make it yours.</p>
+        </div>
+        <div class="parallax-grid">
+          <article class="parallax-card">
+            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.14"><img class="parallax-card__image" src="images/parallax%201.jpg" alt="Long nude almond nails with glossy gold chrome accents and sculpted details" loading="lazy" decoding="async"></div>
+            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.24" aria-hidden="true"></div>
+            <div class="parallax-card__copy">
+              <p class="parallax-card__label">01 — Gilded detail</p>
+              <h3>Molten Gold</h3>
+              <p>Warm nude, sculpted gold lines, and jewel-like accents.</p>
+            </div>
+          </article>
+          <article class="parallax-card">
+            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.16"><img class="parallax-card__image" src="images/parallax%202.jpg" alt="Pink almond French-tip nails with delicate gold outlines and rhinestone accents" loading="lazy" decoding="async"></div>
+            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.28" aria-hidden="true"></div>
+            <div class="parallax-card__copy">
+              <p class="parallax-card__label">02 — Bow energy</p>
+              <h3>Bow Down</h3>
+              <p>Black French tips, ribbon bows, and crystal details.</p>
+            </div>
+          </article>
+          <article class="parallax-card">
+            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.12"><img class="parallax-card__image" src="images/parallax%203.jpg" alt="Blush and white French-tip nails decorated with raised white flowers and gold accents" loading="lazy" decoding="async"></div>
+            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.22" aria-hidden="true"></div>
+            <div class="parallax-card__copy">
+              <p class="parallax-card__label">03 — Garden party</p>
+              <h3>Petal French</h3>
+              <p>Blush almond tips, raised white blooms, and gold.</p>
+            </div>
+          </article>
+          <article class="parallax-card">
+            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.15"><img class="parallax-card__image" src="images/parallax%204.jpg" alt="Black French-tip nails with tiny bows, heart details, and crystal accents" loading="lazy" decoding="async"></div>
+            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.26" aria-hidden="true"></div>
+            <div class="parallax-card__copy">
+              <p class="parallax-card__label">04 — Cocoa chrome</p>
+              <h3>Mocha Melt</h3>
+              <p>Soft pink, molten chocolate outlines, and sparkle.</p>
+            </div>
+          </article>
+          <article class="parallax-card">
+            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.13"><img class="parallax-card__image" src="images/parallax%205.jpg" alt="Glossy pink almond nails with dimensional white flowers and crystal centers" loading="lazy" decoding="async"></div>
+            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.23" aria-hidden="true"></div>
+            <div class="parallax-card__copy">
+              <p class="parallax-card__label">05 — Bloom service</p>
+              <h3>Petal Party</h3>
+              <p>Glossy blush, dimensional florals, and crystal centers.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section__heading">
+          <div class="section__heading-copy">
+            <p class="section__kicker">02 / Pick your energy</p>
+            <h2 id="services-title">Choose Your Canvas</h2>
+          </div>
+          <p class="section__intro">Every set is custom, every detail is intentional. Find your length, then make it yours.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-card__top">
+              <span class="service-card__number">01 — LOW-KEY ICON</span>
+              <span class="service-card__icon"><i class="ri-contrast-drop-2-line" aria-hidden="true"></i></span>
+            </div>
+            <h3>The Shorties Tier</h3>
+            <p>Minimalist length, maximum impact. Perfect for the clean girl aesthetic, structured manicures, and subtle line art.</p>
+            <a class="service-card__link" href="booking-demo.html?service=shorties">Book Shorties <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
+          </article>
+          <article class="service-card">
+            <div class="service-card__top">
+              <span class="service-card__number">02 — MAIN CHARACTER</span>
+              <span class="service-card__icon"><i class="ri-magic-line" aria-hidden="true"></i></span>
+            </div>
+            <h3>The Mid-Length Baddie</h3>
+            <p>The sweet spot. Added length for French tips, 3D gel charms, aura airbrushing, and custom hand-painted designs.</p>
+            <a class="service-card__link" href="booking-demo.html?service=mid-length">Book Mid-Length <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
+          </article>
+          <article class="service-card">
+            <div class="service-card__top">
+              <span class="service-card__number">03 — FULL SEND</span>
+              <span class="service-card__icon"><i class="ri-flashlight-line" aria-hidden="true"></i></span>
+            </div>
+            <h3>The Extendas (XL Sets)</h3>
+            <p>High drama, maximum length. For the girls who want extreme coffin, stiletto, or square shapes with full freestyle art.</p>
+            <a class="service-card__link" href="booking-demo.html?service=xl">Book XL Set <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews" id="love-notes" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section__heading">
+          <div class="section__heading-copy">
+            <p class="section__kicker">03 / Set inspo</p>
+            <h2 id="reviews-title">The Groupchat<br>Is Hyped</h2>
+          </div>
+          <p class="section__intro">A little inspo for your next set. Pick a mood and make it your own.</p>
+        </div>
+        <div class="review-grid">
+          <article class="review">
+            <div class="review__meta">
+              <span class="review__avatar" aria-hidden="true"><i class="ri-disc-line"></i></span>
+              <p class="review__name">Chrome Crush<span class="review__handle">MIRROR FINISH · CUSTOM ART</span></p>
+            </div>
+            <div class="review__bubble">
+              Liquid-metal shine, playful details, and a finish that catches every flash.
+            </div>
+          </article>
+          <article class="review">
+            <div class="review__meta">
+              <span class="review__avatar" aria-hidden="true"><i class="ri-blur-off-line"></i></span>
+              <p class="review__name">Aura Mood<span class="review__handle">SOFT BLENDS · YOUR PALETTE</span></p>
+            </div>
+            <div class="review__bubble">
+              Airbrushed color, dreamy gradients, and a custom mix made around your vibe.
+            </div>
+          </article>
+          <article class="review">
+            <div class="review__meta">
+              <span class="review__avatar" aria-hidden="true"><i class="ri-flashlight-line"></i></span>
+              <p class="review__name">XL Energy<span class="review__handle">EXTRA LENGTH · FULL FREESTYLE</span></p>
+            </div>
+            <div class="review__bubble">
+              Statement shapes, tiny charms, and full freestyle detail. More is more.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="policies" aria-labelledby="policies-title">
+      <div class="container">
+        <div class="section__heading">
+          <div class="section__heading-copy">
+            <p class="section__kicker">04 / The tiny print</p>
+            <h2 id="policies-title">Before You Book</h2>
+          </div>
+          <p class="section__intro">A little prep makes for a way better appointment. Please read before locking in.</p>
+        </div>
+        <div class="policy-grid">
+          <details class="policy-item" name="booking-policy">
+            <summary>
+              <span class="policy-item__icon"><i class="ri-hand-heart-line" aria-hidden="true"></i></span>
+              <span>Fresh Claws Only</span>
+              <i class="ri-arrow-down-s-line policy-item__chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="policy-item__content">Please arrive with bare, clean nails. If you have an existing set that needs removal, add a removal service when you book so there’s enough time for your new design.</div>
+          </details>
+          <details class="policy-item" name="booking-policy">
+            <summary>
+              <span class="policy-item__icon"><i class="ri-time-line" aria-hidden="true"></i></span>
+              <span>The Grace Period</span>
+              <i class="ri-arrow-down-s-line policy-item__chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="policy-item__content">Running behind? Send a message as soon as you can. A 10-minute grace period is available; after that, your appointment may need to be rescheduled.</div>
+          </details>
+          <details class="policy-item" name="booking-policy">
+            <summary>
+              <span class="policy-item__icon"><i class="ri-bank-card-line" aria-hidden="true"></i></span>
+              <span>Secure The Date</span>
+              <i class="ri-arrow-down-s-line policy-item__chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="policy-item__content">A non-refundable deposit is required to hold your appointment and is applied toward your service total. Your booking isn’t confirmed until the deposit is paid.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="booking" aria-labelledby="booking-title">
+      <div class="booking-banner">
+        <div class="booking-banner__text">
+          <p class="section__kicker">Your next set is calling</p>
+          <h2 id="booking-title">Make it a moment.</h2>
+          <p>Bring your inspo, pick your length, and leave with the hands everyone asks about.</p>
+        </div>
+        <a class="button" href="booking-demo.html">BOOK YOUR SET <i class="ri-arrow-up-right-line" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer container">
+      <a class="wordmark" href="#" aria-label="Set Studio home"><span class="wordmark__spark" aria-hidden="true">✳</span><span>SET STUDIO</span></a>
+      <p class="footer__fine">Independent artist. Unreasonably good nails. © <span id="year"></span> SET STUDIO</p>
+      <div class="footer__links">
+        <a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram <i class="ri-arrow-up-right-line" aria-hidden="true"></i></a>
+        <a href="#policies">Policies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site.js" defer></script>
+</body>
+</html>

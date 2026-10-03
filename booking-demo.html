@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111012">
+  <meta name="description" content="Try the Set Studio demo booking experience.">
+  <title>Book Your Set — SET STUDIO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="booking.css">
+  <script src="site.js" defer></script>
+  <script type="module" src="booking-demo.js"></script>
+</head>
+<body>
+  <header class="booking-header">
+    <nav class="booking-nav" aria-label="Booking navigation">
+      <a class="wordmark" href="index.html" aria-label="Set Studio home"><span class="wordmark__spark" aria-hidden="true">✳</span><span>SET STUDIO</span></a>
+      <div class="booking-nav__actions">
+        <a class="booking-nav__back" href="index.html"><i class="ri-arrow-left-line" aria-hidden="true"></i> Back to studio</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme"><i class="ri-sun-line" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="booking-main">
+    <div class="booking-intro">
+      <p class="booking-kicker">Try the booking flow</p>
+      <h1>Lock in<br>your set.</h1>
+      <p>Choose a service, browse the demo calendar, and preview a confirmation. This interactive preview does not reserve a real appointment.</p>
+    </div>
+
+    <section class="booking-surface demo-booking" aria-labelledby="demo-title">
+      <div class="demo-booking__heading">
+        <div>
+          <h2 class="booking-surface__title" id="demo-title">The booking chair is yours.</h2>
+          <p class="booking-surface__hint" id="demo-status" role="status" aria-live="polite">Choose a service to get started.</p>
+        </div>
+        <span class="demo-booking__badge"><i class="ri-calendar-event-line" aria-hidden="true"></i> Demo scheduler</span>
+      </div>
+
+      <div class="demo-notice" role="note">
+        <i class="ri-information-line" aria-hidden="true"></i>
+        <p><strong>Preview only.</strong> Dates and times are examples, not live availability. Nothing is booked, no payment is taken, and no personal details are collected.</p>
+      </div>
+
+      <div id="demo-flow">
+        <section class="demo-step" aria-labelledby="service-title">
+          <div class="demo-step__heading">
+            <span class="demo-step__number">01</span>
+            <div>
+              <h3 id="service-title">Choose your set</h3>
+              <p>Pick a tier to preview its booking flow.</p>
+            </div>
+          </div>
+          <div class="service-options" role="group" aria-label="Choose a demo service">
+            <button class="service-option" type="button" data-service="shorties" aria-pressed="false">
+              <span class="service-option__icon"><i class="ri-hand-heart-line" aria-hidden="true"></i></span>
+              <span class="service-option__copy">
+                <span class="service-option__name">The Shorties Tier</span>
+                <span class="service-option__description">Minimalist length, maximum impact. Clean girl manis, structured sets, and subtle art.</span>
+              </span>
+              <i class="ri-check-line service-option__check" aria-hidden="true"></i>
+            </button>
+            <button class="service-option" type="button" data-service="mid-length" aria-pressed="false">
+              <span class="service-option__icon"><i class="ri-magic-line" aria-hidden="true"></i></span>
+              <span class="service-option__copy">
+                <span class="service-option__name">The Mid-Length Baddie</span>
+                <span class="service-option__description">The sweet spot for French tips, 3D charms, aura art, and custom details.</span>
+              </span>
+              <i class="ri-check-line service-option__check" aria-hidden="true"></i>
+            </button>
+            <button class="service-option" type="button" data-service="xl" aria-pressed="false">
+              <span class="service-option__icon"><i class="ri-sparkling-2-line" aria-hidden="true"></i></span>
+              <span class="service-option__copy">
+                <span class="service-option__name">The Extendas (XL Sets)</span>
+                <span class="service-option__description">High drama, maximum length, statement shapes, and full freestyle art.</span>
+              </span>
+              <i class="ri-check-line service-option__check" aria-hidden="true"></i>
+            </button>
+          </div>
+        </section>
+
+        <section class="demo-step" aria-labelledby="date-title">
+          <div class="demo-step__heading">
+            <span class="demo-step__number">02</span>
+            <div>
+              <h3 id="date-title">Pick a demo date</h3>
+              <p>Example openings are shown Tuesday through Saturday.</p>
+            </div>
+          </div>
+          <div class="calendar-month">
+            <button class="calendar-month__button" id="previous-month" type="button" aria-label="Previous month"><i class="ri-arrow-left-s-line" aria-hidden="true"></i></button>
+            <h4 class="calendar-month__title" id="calendar-month" aria-live="polite"></h4>
+            <button class="calendar-month__button" id="next-month" type="button" aria-label="Next month"><i class="ri-arrow-right-s-line" aria-hidden="true"></i></button>
+          </div>
+          <div class="calendar-weekdays" aria-hidden="true">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="calendar-days" id="calendar-days" role="group" aria-label="Choose a demo date"></div>
+          <p class="calendar-status" id="calendar-status" role="status" aria-live="polite">Select a service before choosing a date.</p>
+        </section>
+
+        <section class="demo-step" id="time-step" aria-labelledby="time-title" hidden>
+          <div class="demo-step__heading">
+            <span class="demo-step__number">03</span>
+            <div>
+              <h3 id="time-title">Choose a demo time</h3>
+              <p id="selected-date-label">Example times for your selected date.</p>
+            </div>
+          </div>
+          <div class="time-options" id="time-options" role="group" aria-label="Choose a demo time"></div>
+        </section>
+
+        <div class="booking-summary" id="booking-summary" aria-live="polite">
+          <span>Service <strong id="summary-service">Choose a service</strong></span>
+          <span class="booking-summary__separator" aria-hidden="true">/</span>
+          <span>Date <strong id="summary-date">Choose a date</strong></span>
+          <span class="booking-summary__separator" aria-hidden="true">/</span>
+          <span>Time <strong id="summary-time">Choose a time</strong></span>
+        </div>
+
+        <div class="booking-actions">
+          <button class="booking-button" id="preview-booking" type="button" disabled>Preview demo confirmation <i class="ri-arrow-right-line" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+      <section class="demo-confirmation" id="demo-confirmation" aria-labelledby="confirmation-title" aria-live="polite" hidden>
+        <span class="confirmation-mark"><i class="ri-check-line" aria-hidden="true"></i></span>
+        <p class="confirmation-status">Demo preview only</p>
+        <h3 class="confirmation-title" id="confirmation-title" tabindex="-1">Your set is picked.</h3>
+        <p class="confirmation-copy">This is a sample confirmation to preview the booking experience. Your selection has not been sent or reserved.</p>
+        <dl class="confirmation-details">
+          <div><dt>Service</dt><dd id="confirmation-service"></dd></div>
+          <div><dt>Example date</dt><dd id="confirmation-date"></dd></div>
+          <div><dt>Example time</dt><dd id="confirmation-time"></dd></div>
+          <div><dt>Booking status</dt><dd>Not booked — demo only</dd></div>
+        </dl>
+        <div class="booking-actions">
+          <button class="booking-back-button" id="start-over" type="button"><i class="ri-arrow-left-line" aria-hidden="true"></i> Try another selection</button>
+        </div>
+      </section>
+    </section>
+
+    <aside class="booking-info-note">
+      <i class="ri-shield-check-line" aria-hidden="true"></i>
+      <span>This template demo works entirely in your browser. It does not check studio availability, save booking details, reserve an appointment, or process deposits.</span>
+    </aside>
+  </main>
+
+  <footer class="booking-footer">
+    <div class="booking-footer__inner">
+      <p>Independent artist. Unreasonably good nails.</p>
+      <p>Interactive demo scheduler — no real appointments</p>
+    </div>
+  </footer>
+</body>
+</html>
