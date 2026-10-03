@@ -998,166 +998,76 @@
     .review__time {
       display: block;
       margin-top: 9px;
-      color: var(--subtle);
-      font-size: 9px;
-      font-weight: 700;
-      text-align: right;
-      text-transform: uppercase;
-      letter-spacing: .1em;
+      color: rgba(255, 248, 252, .62);
+      font-size: 10px;
+      font-weight: 600;
     }
 
-    .review:nth-child(even) .review__time {
-      color: rgba(25, 13, 20, .68);
+    [data-theme="light"] .review__time {
+      color: rgba(32, 22, 29, .56);
     }
 
-    .policy-grid {
+    footer {
       display: grid;
-      gap: var(--gap-card);
-    }
-
-    .policy-item {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--surface);
-      transition: border-color .2s ease, background-color .2s ease;
-    }
-
-    .policy-item[open] {
-      border-color: color-mix(in srgb, var(--pink) 48%, var(--line));
-      background: var(--surface-raised);
-    }
-
-    .policy-item summary {
-      display: flex;
-      min-height: 66px;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 18px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 800;
-      list-style: none;
-    }
-
-    .policy-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .policy-item__icon {
-      display: grid;
-      width: 38px;
-      height: 38px;
-      flex: 0 0 auto;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--pink-wash);
-      color: var(--pink);
-      font-size: 18px;
-    }
-
-    .policy-item__chevron {
-      margin-left: auto;
-      color: var(--subtle);
-      transition: transform .2s ease;
-    }
-
-    .policy-item[open] .policy-item__chevron {
-      transform: rotate(180deg);
-    }
-
-    .policy-item__content {
-      max-width: 700px;
-      padding: 0 22px 20px 70px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .booking-banner {
-      position: relative;
-      display: flex;
-      overflow: hidden;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 25px;
-      padding: clamp(24px, 6vw, 50px);
-      border: 1px solid color-mix(in srgb, var(--pink) 45%, var(--line));
-      border-radius: 24px;
-      background:
-        radial-gradient(ellipse at 100% 0%, rgba(255, 79, 163, .2), transparent 55%),
-        var(--page-raised);
-    }
-
-    .booking-banner::after {
-      position: absolute;
-      right: 50px;
-      bottom: -160px;
-      width: 260px;
-      height: 260px;
-      border: 1px solid color-mix(in srgb, var(--chrome) 25%, transparent);
-      border-radius: 50%;
-      content: "";
-      pointer-events: none;
-    }
-
-    .booking-banner__text {
-      position: relative;
-      z-index: 1;
-      max-width: 690px;
-    }
-
-    .booking-banner h2 {
-      margin-bottom: 12px;
-      font-size: clamp(2rem, 8vw, 4rem);
-    }
-
-    .booking-banner p:last-child {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .booking-banner .button {
-      position: relative;
-      z-index: 1;
-      flex: 0 0 auto;
-    }
-
-    .site-footer {
-      padding-block: 30px 40px;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding-block: 50px;
+      padding-inline: var(--margin-page);
       border-top: 1px solid var(--line);
+      background: var(--page);
+      font-size: 12px;
     }
 
     .footer {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 18px;
+      width: min(100% - 2 * var(--margin-page), 1240px);
+      margin-inline: auto;
+      display: inherit;
+      grid-template-columns: inherit;
+      gap: inherit;
     }
 
-    .footer__fine {
-      margin: 0;
+    .footer__meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .footer__wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.07em;
+      line-height: 1;
+    }
+
+    .footer__wordmark i {
+      color: var(--pink);
+      font-size: 16px;
+    }
+
+    .footer__legal {
       color: var(--subtle);
-      font-size: 11px;
     }
 
     .footer__links {
       display: flex;
-      flex-wrap: wrap;
       gap: 20px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
+      align-items: center;
+      font-weight: 600;
     }
 
-    @media (min-width: 700px) {
-      :root {
-        --margin-page: 32px;
-        --padding-card: 24px;
-      }
+    .footer__links i {
+      color: var(--pink);
+      font-size: 18px;
+    }
 
-      .nav {
-        min-height: 76px;
+    @media (min-width: 768px) {
+      :root {
+        --margin-page: 24px;
       }
 
       .nav__links {
@@ -1165,10 +1075,7 @@
       }
 
       .hero {
-        min-height: 640px;
-        grid-template-columns: minmax(0, 1fr) minmax(290px, .78fr);
-        gap: 36px;
-        padding-block: 68px 88px;
+        grid-template-columns: 1fr 1fr;
       }
 
       .hero__visual {
@@ -1221,379 +1128,250 @@
         gap: 16px;
       }
 
-      .service-card {
-        min-height: 390px;
-        padding: 25px;
-      }
-
       .review-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        align-items: start;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
       }
 
-      .review:nth-child(2) {
-        margin-top: 28px;
-      }
-
-      .review:nth-child(3) {
-        margin-top: 56px;
-      }
-
-      .policy-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        align-items: start;
-      }
-
-      .policy-item summary {
-        padding-inline: 16px;
-        font-size: 13px;
-      }
-
-      .policy-item__content {
-        padding-inline: 18px;
-      }
-
-      .booking-banner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+      footer {
+        grid-template-columns: 1fr auto;
+        padding-block: 56px;
       }
 
       .footer {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .hero {
-        grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
-        gap: 80px;
-      }
-
-      .hero__visual {
-        width: min(100%, 390px);
-      }
-
-      .video-placeholder {
-        min-height: 535px;
-      }
-
-      .service-card {
-        min-height: 360px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      :root {
-        --margin-page: 16px;
-        --padding-card: 16px;
-      }
-
-      .nav__book {
-        padding-inline: 12px;
-        font-size: 11px;
-      }
-
-      .hero__visual {
-        width: calc(100% - 8px);
-      }
-
-      .visual-index {
-        left: -8px;
-      }
-
-      .visual-sticker {
-        right: -3px;
-        width: 74px;
-        height: 74px;
-        font-size: 9px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
+        grid-template-columns: 1fr auto;
       }
     }
   </style>
 </head>
+
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <div class="announcement" aria-label="Studio announcement">
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__group">
-        <span>✨ BOOKS ARE OPEN FOR THIS MONTH</span><span>•</span>
-        <span>CHROME, JEL-X, &amp; CUSTOM ART ONLY</span><span>•</span>
-        <span>SPOTS FILL FAST</span><span>✨</span>
-      </div>
-      <div class="marquee__group">
-        <span>✨ BOOKS ARE OPEN FOR THIS MONTH</span><span>•</span>
-        <span>CHROME, JEL-X, &amp; CUSTOM ART ONLY</span><span>•</span>
-        <span>SPOTS FILL FAST</span><span>✨</span>
-      </div>
-    </div>
-  </div>
-
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="wordmark" href="#" aria-label="Set Studio home">
-        <span class="wordmark__spark" aria-hidden="true">✳</span>
-        <span>SET STUDIO</span>
-      </a>
+    <nav class="nav">
+      <div class="wordmark">
+        <i class="ri-sparkling-2-line wordmark__spark"></i>SET STUDIO
+      </div>
       <div class="nav__links">
-        <a href="#services">The menu</a>
-        <a href="#lookbook">Set inspo</a>
-        <a href="#love-notes">Love notes</a>
-        <a href="#policies">The details</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
       </div>
       <div class="nav__actions">
-        <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme">
-          <i class="ri-sun-line" aria-hidden="true"></i>
-        </button>
-        <a class="nav__book" href="booking-demo.html">Book a set <i class="ri-arrow-up-right-line" aria-hidden="true"></i></a>
+        <button class="theme-toggle" aria-label="toggle theme"><i class="ri-contrast-2-line"></i></button>
+        <button class="nav__book button">Book</button>
       </div>
     </nav>
   </header>
+  <a href="#hero" class="skip-link">Skip to main</a>
 
-  <main id="main">
-    <section class="hero container" aria-labelledby="hero-title">
-      <div class="hero__copy">
-        <p class="eyebrow">Independent nail artist · accepting new clients</p>
-        <h1 id="hero-title">Nails That<br>Do The <span>Talking.</span></h1>
-        <p class="hero__description">Boring nails? Can’t relate. Tap below to secure your set and elevate your vibe.</p>
-        <div class="hero__actions">
-          <a class="button button--pulse" href="#services">⚡ LOCK IN MY SPOT <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
-          <span class="hero__note"><i class="ri-sparkling-2-line" aria-hidden="true"></i> Made to be screenshotted</span>
+  <div class="announcement">
+    <div class="marquee">
+      <div class="marquee__group">Bookings Now Open</div>
+      <div class="marquee__group">Bookings Now Open</div>
+      <div class="marquee__group">Bookings Now Open</div>
+      <div class="marquee__group">Bookings Now Open</div>
+    </div>
+  </div>
+
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero__copy">
+      <p class="eyebrow">Main Character Energy</p>
+      <h1><span>Nails that do</span> the talking</h1>
+      <p class="hero__description">Custom nail art designed to make you feel like the main character. Book your set and express yourself.</p>
+      <div class="hero__actions">
+        <button class="button button--pulse">Book Now</button>
+        <a href="#lookbook" class="button"><i class="ri-arrow-down-s-line"></i>Explore</a>
+      </div>
+      <div class="hero__note">
+        <i class="ri-check-double-line"></i>
+        <span>Available for in-studio and special events</span>
+      </div>
+    </div>
+    <div class="hero__visual" aria-label="Vertical nail art video placeholder">
+      <span class="visual-index">SET No. 001 / 26</span>
+      <div class="video-placeholder">
+        <span class="video-placeholder__label">9:16 studio reel · add your clip</span>
+        <div class="video-placeholder__art" aria-hidden="true">
+          <span class="nail"></span><span class="nail"></span><span class="nail"></span><span class="nail"></span><span class="nail"></span>
+          <span class="video-placeholder__play"><i class="ri-play-fill"></i></span>
+        </div>
+        <div class="video-placeholder__caption">
+          <strong>New set, new energy.</strong>
+          Your latest nail-art video lives here.
         </div>
       </div>
-      <div class="hero__visual" aria-label="Vertical nail art video placeholder">
-        <span class="visual-index">SET No. 001 / 26</span>
-        <div class="video-placeholder">
-          <span class="video-placeholder__label">9:16 studio reel · add your clip</span>
-          <div class="video-placeholder__art" aria-hidden="true">
-            <span class="nail"></span><span class="nail"></span><span class="nail"></span><span class="nail"></span><span class="nail"></span>
-            <span class="video-placeholder__play"><i class="ri-play-fill"></i></span>
+      <span class="visual-sticker">YOUR<br>HANDS,<br>YOUR RULES</span>
+    </div>
+  </section>
+
+  <section class="parallax-section" id="lookbook" aria-labelledby="lookbook-title">
+    <div class="parallax-section__inner">
+      <div class="section__heading">
+        <div class="section__heading-copy">
+          <p class="section__kicker">01 / A moodboard in motion</p>
+          <h2 id="lookbook-title">Made to move.</h2>
+        </div>
+        <p class="section__intro">Your next set starts with a feeling. Save a mood, then let's make it yours.</p>
+      </div>
+      <div class="parallax-grid">
+        <article class="parallax-card">
+          <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.14"><img class="parallax-card__image" src="images/parallax1.jpg" alt="Long nude almond nails with glossy gold chrome accents and sculpted details" loading="lazy" decoding="async"></div>
+          <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.24" aria-hidden="true"></div>
+          <div class="parallax-card__copy">
+            <p class="parallax-card__label">01 — Gilded detail</p>
+            <h3>Molten Gold</h3>
+            <p>Warm nude, sculpted gold lines, and jewel-like accents.</p>
           </div>
-          <div class="video-placeholder__caption">
-            <strong>New set, new energy.</strong>
-            Your latest nail-art video lives here.
+        </article>
+        <article class="parallax-card">
+          <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.16"><img class="parallax-card__image" src="images/parallax2.jpg" alt="Pink almond French-tip nails with delicate gold outlines and rhinestone accents" loading="lazy" decoding="async"></div>
+          <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.28" aria-hidden="true"></div>
+          <div class="parallax-card__copy">
+            <p class="parallax-card__label">02 — Bow energy</p>
+            <h3>Bow Down</h3>
+            <p>Black French tips, ribbon bows, and crystal details.</p>
           </div>
-        </div>
-        <span class="visual-sticker">YOUR<br>HANDS,<br>YOUR RULES</span>
-      </div>
-    </section>
-
-    <section class="parallax-section" id="lookbook" aria-labelledby="lookbook-title">
-      <div class="parallax-section__inner">
-        <div class="section__heading">
-          <div class="section__heading-copy">
-            <p class="section__kicker">01 / A moodboard in motion</p>
-            <h2 id="lookbook-title">Made to move.</h2>
+        </article>
+        <article class="parallax-card">
+          <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.12"><img class="parallax-card__image" src="images/parallax3.jpg" alt="Blush and white French-tip nails decorated with raised white flowers and gold accents" loading="lazy" decoding="async"></div>
+          <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.22" aria-hidden="true"></div>
+          <div class="parallax-card__copy">
+            <p class="parallax-card__label">03 — Garden party</p>
+            <h3>Petal French</h3>
+            <p>Blush almond tips, raised white blooms, and gold.</p>
           </div>
-          <p class="section__intro">Your next set starts with a feeling. Save a mood, then let’s make it yours.</p>
-        </div>
-        <div class="parallax-grid">
-          <article class="parallax-card">
-            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.14"><img class="parallax-card__image" src="images/parallax%201.jpg" alt="Long nude almond nails with glossy gold chrome accents and sculpted details" loading="lazy" decoding="async"></div>
-            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.24" aria-hidden="true"></div>
-            <div class="parallax-card__copy">
-              <p class="parallax-card__label">01 — Gilded detail</p>
-              <h3>Molten Gold</h3>
-              <p>Warm nude, sculpted gold lines, and jewel-like accents.</p>
-            </div>
-          </article>
-          <article class="parallax-card">
-            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.16"><img class="parallax-card__image" src="images/parallax%202.jpg" alt="Pink almond French-tip nails with delicate gold outlines and rhinestone accents" loading="lazy" decoding="async"></div>
-            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.28" aria-hidden="true"></div>
-            <div class="parallax-card__copy">
-              <p class="parallax-card__label">02 — Bow energy</p>
-              <h3>Bow Down</h3>
-              <p>Black French tips, ribbon bows, and crystal details.</p>
-            </div>
-          </article>
-          <article class="parallax-card">
-            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.12"><img class="parallax-card__image" src="images/parallax%203.jpg" alt="Blush and white French-tip nails decorated with raised white flowers and gold accents" loading="lazy" decoding="async"></div>
-            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.22" aria-hidden="true"></div>
-            <div class="parallax-card__copy">
-              <p class="parallax-card__label">03 — Garden party</p>
-              <h3>Petal French</h3>
-              <p>Blush almond tips, raised white blooms, and gold.</p>
-            </div>
-          </article>
-          <article class="parallax-card">
-            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.15"><img class="parallax-card__image" src="images/parallax%204.jpg" alt="Black French-tip nails with tiny bows, heart details, and crystal accents" loading="lazy" decoding="async"></div>
-            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.26" aria-hidden="true"></div>
-            <div class="parallax-card__copy">
-              <p class="parallax-card__label">04 — Cocoa chrome</p>
-              <h3>Mocha Melt</h3>
-              <p>Soft pink, molten chocolate outlines, and sparkle.</p>
-            </div>
-          </article>
-          <article class="parallax-card">
-            <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.13"><img class="parallax-card__image" src="images/parallax%205.jpg" alt="Glossy pink almond nails with dimensional white flowers and crystal centers" loading="lazy" decoding="async"></div>
-            <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.23" aria-hidden="true"></div>
-            <div class="parallax-card__copy">
-              <p class="parallax-card__label">05 — Bloom service</p>
-              <h3>Petal Party</h3>
-              <p>Glossy blush, dimensional florals, and crystal centers.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section__heading">
-          <div class="section__heading-copy">
-            <p class="section__kicker">02 / Pick your energy</p>
-            <h2 id="services-title">Choose Your Canvas</h2>
+        </article>
+        <article class="parallax-card">
+          <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.15"><img class="parallax-card__image" src="images/parallax4.jpg" alt="Black French-tip nails with tiny bows, heart details, and crystal accents" loading="lazy" decoding="async"></div>
+          <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.26" aria-hidden="true"></div>
+          <div class="parallax-card__copy">
+            <p class="parallax-card__label">04 — Cocoa chrome</p>
+            <h3>Mocha Melt</h3>
+            <p>Soft pink, molten chocolate outlines, and sparkle.</p>
           </div>
-          <p class="section__intro">Every set is custom, every detail is intentional. Find your length, then make it yours.</p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card">
-            <div class="service-card__top">
-              <span class="service-card__number">01 — LOW-KEY ICON</span>
-              <span class="service-card__icon"><i class="ri-contrast-drop-2-line" aria-hidden="true"></i></span>
-            </div>
-            <h3>The Shorties Tier</h3>
-            <p>Minimalist length, maximum impact. Perfect for the clean girl aesthetic, structured manicures, and subtle line art.</p>
-            <a class="service-card__link" href="booking-demo.html?service=shorties">Book Shorties <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
-          </article>
-          <article class="service-card">
-            <div class="service-card__top">
-              <span class="service-card__number">02 — MAIN CHARACTER</span>
-              <span class="service-card__icon"><i class="ri-magic-line" aria-hidden="true"></i></span>
-            </div>
-            <h3>The Mid-Length Baddie</h3>
-            <p>The sweet spot. Added length for French tips, 3D gel charms, aura airbrushing, and custom hand-painted designs.</p>
-            <a class="service-card__link" href="booking-demo.html?service=mid-length">Book Mid-Length <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
-          </article>
-          <article class="service-card">
-            <div class="service-card__top">
-              <span class="service-card__number">03 — FULL SEND</span>
-              <span class="service-card__icon"><i class="ri-flashlight-line" aria-hidden="true"></i></span>
-            </div>
-            <h3>The Extendas (XL Sets)</h3>
-            <p>High drama, maximum length. For the girls who want extreme coffin, stiletto, or square shapes with full freestyle art.</p>
-            <a class="service-card__link" href="booking-demo.html?service=xl">Book XL Set <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reviews" id="love-notes" aria-labelledby="reviews-title">
-      <div class="container">
-        <div class="section__heading">
-          <div class="section__heading-copy">
-            <p class="section__kicker">03 / Set inspo</p>
-            <h2 id="reviews-title">The Groupchat<br>Is Hyped</h2>
+        </article>
+        <article class="parallax-card">
+          <div class="parallax-card__visual" data-parallax-layer data-parallax-speed="0.13"><img class="parallax-card__image" src="images/parallax5.jpg" alt="Glossy pink almond nails with dimensional white flowers and crystal centers" loading="lazy" decoding="async"></div>
+          <div class="parallax-card__orb" data-parallax-layer data-parallax-speed="0.23" aria-hidden="true"></div>
+          <div class="parallax-card__copy">
+            <p class="parallax-card__label">05 — Bloom service</p>
+            <h3>Petal Party</h3>
+            <p>Glossy blush, dimensional florals, and crystal centers.</p>
           </div>
-          <p class="section__intro">A little inspo for your next set. Pick a mood and make it your own.</p>
-        </div>
-        <div class="review-grid">
-          <article class="review">
-            <div class="review__meta">
-              <span class="review__avatar" aria-hidden="true"><i class="ri-disc-line"></i></span>
-              <p class="review__name">Chrome Crush<span class="review__handle">MIRROR FINISH · CUSTOM ART</span></p>
-            </div>
-            <div class="review__bubble">
-              Liquid-metal shine, playful details, and a finish that catches every flash.
-            </div>
-          </article>
-          <article class="review">
-            <div class="review__meta">
-              <span class="review__avatar" aria-hidden="true"><i class="ri-blur-off-line"></i></span>
-              <p class="review__name">Aura Mood<span class="review__handle">SOFT BLENDS · YOUR PALETTE</span></p>
-            </div>
-            <div class="review__bubble">
-              Airbrushed color, dreamy gradients, and a custom mix made around your vibe.
-            </div>
-          </article>
-          <article class="review">
-            <div class="review__meta">
-              <span class="review__avatar" aria-hidden="true"><i class="ri-flashlight-line"></i></span>
-              <p class="review__name">XL Energy<span class="review__handle">EXTRA LENGTH · FULL FREESTYLE</span></p>
-            </div>
-            <div class="review__bubble">
-              Statement shapes, tiny charms, and full freestyle detail. More is more.
-            </div>
-          </article>
-        </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="policies" aria-labelledby="policies-title">
-      <div class="container">
-        <div class="section__heading">
-          <div class="section__heading-copy">
-            <p class="section__kicker">04 / The tiny print</p>
-            <h2 id="policies-title">Before You Book</h2>
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section__heading">
+        <div class="section__heading-copy">
+          <p class="section__kicker">02 / Pick your energy</p>
+          <h2 id="services-title">Choose Your Canvas</h2>
+        </div>
+        <p class="section__intro">Every set is custom, every detail is intentional. Find your length, then make it yours.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-card__top">
+            <span class="service-card__number">SET 01</span>
+            <div class="service-card__icon"><i class="ri-hand-heart-line"></i></div>
           </div>
-          <p class="section__intro">A little prep makes for a way better appointment. Please read before locking in.</p>
+          <h3>French Classics</h3>
+          <p>Timeless styles elevated. Choose your tip, add your details. Think bows, gems, chrome, florals.</p>
+          <a href="#" class="service-card__link">Explore set <i class="ri-arrow-right-line"></i></a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__top">
+            <span class="service-card__number">SET 02</span>
+            <div class="service-card__icon"><i class="ri-palette-line"></i></div>
+          </div>
+          <h3>Full Custom Art</h3>
+          <p>Bring a mood, vibe, or reference. Custom nail art designed just for you. No limits.</p>
+          <a href="#" class="service-card__link">Explore set <i class="ri-arrow-right-line"></i></a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__top">
+            <span class="service-card__number">SET 03</span>
+            <div class="service-card__icon"><i class="ri-sparkles-line"></i></div>
+          </div>
+          <h3>Chrome & Glazed</h3>
+          <p>Glossy, reflective, bold. Ultra-shine finishes with chrome accents and gradient glazes.</p>
+          <a href="#" class="service-card__link">Explore set <i class="ri-arrow-right-line"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews section" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <h2 id="reviews-title" style="margin-bottom: 28px;">Love from our clients</h2>
+      <div class="review-grid">
+        <div class="review">
+          <div class="review__meta">
+            <div class="review__avatar">A</div>
+            <div>
+              <p class="review__name">Amara</p>
+              <span class="review__handle">@main.character</span>
+            </div>
+          </div>
+          <div class="review__bubble">Set my entire vibe. Literally obsessed with every detail. Main character energy activated ✨</div>
+          <span class="review__time">2 days ago</span>
         </div>
-        <div class="policy-grid">
-          <details class="policy-item" name="booking-policy">
-            <summary>
-              <span class="policy-item__icon"><i class="ri-hand-heart-line" aria-hidden="true"></i></span>
-              <span>Fresh Claws Only</span>
-              <i class="ri-arrow-down-s-line policy-item__chevron" aria-hidden="true"></i>
-            </summary>
-            <div class="policy-item__content">Please arrive with bare, clean nails. If you have an existing set that needs removal, add a removal service when you book so there’s enough time for your new design.</div>
-          </details>
-          <details class="policy-item" name="booking-policy">
-            <summary>
-              <span class="policy-item__icon"><i class="ri-time-line" aria-hidden="true"></i></span>
-              <span>The Grace Period</span>
-              <i class="ri-arrow-down-s-line policy-item__chevron" aria-hidden="true"></i>
-            </summary>
-            <div class="policy-item__content">Running behind? Send a message as soon as you can. A 10-minute grace period is available; after that, your appointment may need to be rescheduled.</div>
-          </details>
-          <details class="policy-item" name="booking-policy">
-            <summary>
-              <span class="policy-item__icon"><i class="ri-bank-card-line" aria-hidden="true"></i></span>
-              <span>Secure The Date</span>
-              <i class="ri-arrow-down-s-line policy-item__chevron" aria-hidden="true"></i>
-            </summary>
-            <div class="policy-item__content">A non-refundable deposit is required to hold your appointment and is applied toward your service total. Your booking isn’t confirmed until the deposit is paid.</div>
-          </details>
+        <div class="review">
+          <div class="review__meta">
+            <div class="review__avatar">J</div>
+            <div>
+              <p class="review__name">Journey</p>
+              <span class="review__handle">@goldenratio</span>
+            </div>
+          </div>
+          <div class="review__bubble">The attention to detail is unreal. These nails are ART. Already booked my next appointment.</div>
+          <span class="review__time">1 week ago</span>
+        </div>
+        <div class="review">
+          <div class="review__meta">
+            <div class="review__avatar">S</div>
+            <div>
+              <p class="review__name">Sage</p>
+              <span class="review__handle">@moods.and.vibes</span>
+            </div>
+          </div>
+          <div class="review__bubble">Brought a vibe, left with a masterpiece. The custom art is incredible. This is my new home base.</div>
+          <span class="review__time">3 weeks ago</span>
+        </div>
+        <div class="review">
+          <div class="review__meta">
+            <div class="review__avatar">K</div>
+            <div>
+              <p class="review__name">Kira</p>
+              <span class="review__handle">@nail.dreams</span>
+            </div>
+          </div>
+          <div class="review__bubble">Every single set is next level. The creativity and precision are beyond. Highly recommend ✓✓</div>
+          <span class="review__time">1 month ago</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="container" id="booking" aria-labelledby="booking-title">
-      <div class="booking-banner">
-        <div class="booking-banner__text">
-          <p class="section__kicker">Your next set is calling</p>
-          <h2 id="booking-title">Make it a moment.</h2>
-          <p>Bring your inspo, pick your length, and leave with the hands everyone asks about.</p>
+  <footer>
+    <div class="footer">
+      <div class="footer__meta">
+        <div class="footer__wordmark">
+          <i class="ri-sparkling-2-line"></i>SET STUDIO
         </div>
-        <a class="button" href="booking-demo.html">BOOK YOUR SET <i class="ri-arrow-up-right-line" aria-hidden="true"></i></a>
+        <span class="footer__legal">© <span id="year"></span> All rights reserved. Nails designed with intention.</span>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer container">
-      <a class="wordmark" href="#" aria-label="Set Studio home"><span class="wordmark__spark" aria-hidden="true">✳</span><span>SET STUDIO</span></a>
-      <p class="footer__fine">Independent artist. Unreasonably good nails. © <span id="year"></span> SET STUDIO</p>
       <div class="footer__links">
-        <a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram <i class="ri-arrow-up-right-line" aria-hidden="true"></i></a>
-        <a href="#policies">Policies</a>
+        <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+        <a href="#" aria-label="TikTok"><i class="ri-tiktok-line"></i></a>
+        <a href="#" aria-label="Contact"><i class="ri-mail-line"></i></a>
       </div>
     </div>
   </footer>
 
-  <script src="site.js" defer></script>
+  <script src="site.js"></script>
 </body>
 </html>
